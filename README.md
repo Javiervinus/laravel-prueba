@@ -17,4 +17,5 @@ https://www.getpostman.com/collections/1d50bb19df103f8cf470
 - CRUD de Companias (requiere un inicio de sesion y enviar por los headers la variable "Autorizacion" con el valor de "Bearer "+ token entregado en el inicio de sesion)
 - CRUD de empleados (no necesita token)
 
+ *El .env fue adjuntado para mayor facilidad, se necesita crear base de datos db_laravel antes de correr el proyecto*
 
