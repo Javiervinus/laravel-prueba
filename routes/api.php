@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 //companias
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api'], function () {
     Route::get('companias', 'CompaniaController@getAll');
     Route::get('companias/{compania}', 'CompaniaController@getById');
     Route::post('companias', 'CompaniaController@create');
@@ -36,7 +36,3 @@ Route::delete('empleados/{empleado}', 'EmpleadoController@delete');
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
-
-
-
-

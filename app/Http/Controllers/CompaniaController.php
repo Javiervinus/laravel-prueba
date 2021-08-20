@@ -12,9 +12,14 @@ class CompaniaController extends Controller
         return Compania::all();
     }
 
-    public function getById(Compania $compania)
+    public function getById($compania)
+
     {
-        return $compania;
+        $compania = Compania::find($compania);
+        if (!$compania) {
+            return response()->json(["mensaje" => "no hay"], 404);
+        }
+        return $compania->empleados;
     }
 
     public function create(Request $request)

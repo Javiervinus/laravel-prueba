@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compania;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 
@@ -12,9 +13,16 @@ class EmpleadoController extends Controller
         return Empleado::all();
     }
 
-    public function getById(Empleado $empleado)
+    public function getById($empleado)
     {
-        return $empleado;
+        $id = (string) $empleado;
+        $companias = Compania::where('nombre', $id)->get();
+        foreach ($companias as $compania) {
+            foreach ($compania->empleados as $empleado) {
+                $empleados[] = $empleado;
+            }
+        }
+        return $empleados;
     }
 
     public function create(Request $request)
